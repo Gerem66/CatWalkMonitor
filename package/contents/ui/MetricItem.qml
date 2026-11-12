@@ -21,8 +21,11 @@ Item {
     /** The white picture that tells what the reading is, drawn before the text. */
     property url icon
     property bool showIcon: false
+    /** Space between the usage and the temperature, in pixels; a share of the font size if negative. */
+    property real temperatureSpacing: -1
 
     readonly property bool hasTemperature: isFinite(temperature)
+    readonly property bool automaticTemperatureSpacing: temperatureSpacing < 0
 
     // Proportions, relative to the font size.
     readonly property real iconEm: 1.1
@@ -30,12 +33,12 @@ Item {
     readonly property real temperatureGapEm: 0.3
 
     // The item is at most `em * fontSize + pixels` wide: `em` is what grows
-    // with the font, `pixels` what does not, which here is only what
-    // rounding each part to whole pixels can add.
+    // with the font, `pixels` what does not: a spacing given in pixels, and
+    // what rounding each part to whole pixels can add.
     readonly property real em: (showIcon ? iconEm + iconGapEm : 0) + usageText.em
-                               + (hasTemperature ? temperatureText.em + temperatureGapEm : 0)
+                               + (hasTemperature ? temperatureText.em + (automaticTemperatureSpacing ? temperatureGapEm : 0) : 0)
     readonly property real pixels: (showIcon ? 2 : 0) + 1
-                                   + (hasTemperature ? 2 : 0)
+                                   + (hasTemperature ? 2 + (automaticTemperatureSpacing ? 0 : temperatureSpacing) : 0)
     /** Height of a line of text for a font size of one pixel. */
     readonly property real lineEm: usageText.lineEm
 
@@ -66,7 +69,8 @@ Item {
         id: texts
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        spacing: Math.round(metric.temperatureGapEm * metric.fontSize)
+        spacing: metric.automaticTemperatureSpacing ? Math.round(metric.temperatureGapEm * metric.fontSize)
+                                                    : metric.temperatureSpacing
 
         StableText {
             id: usageText

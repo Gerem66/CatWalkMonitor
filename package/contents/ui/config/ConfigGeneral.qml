@@ -30,6 +30,8 @@ KCM.SimpleKCM {
     property alias cfg_ramHighUsageColor: ramHighUsage.color
     property alias cfg_type: type.currentIndex
     property alias cfg_valuesOrientation: valuesOrientation.currentIndex
+    property alias cfg_spacing: spacing.value
+    property alias cfg_temperatureSpacing: temperatureSpacing.value
     property alias cfg_catSource: catSource.currentIndex
     property alias cfg_catPosition: catPosition.currentIndex
     property alias cfg_catSize: catSize.value
@@ -119,6 +121,15 @@ KCM.SimpleKCM {
             enabled: type.currentIndex !== 1
         }
 
+        SizeChoice {
+            id: spacing
+            Kirigami.FormData.label: i18n("Spacing:")
+            automaticValue: -1
+            from: 0
+            to: 64
+            suggested: 8
+        }
+
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
             Kirigami.FormData.label: i18nc("@title:group", "Cat")
@@ -181,6 +192,18 @@ KCM.SimpleKCM {
             Kirigami.FormData.label: i18n("Icons:")
             text: i18n("Show an icon before each value")
             enabled: type.currentIndex !== 1
+        }
+
+        SizeChoice {
+            id: temperatureSpacing
+            Kirigami.FormData.label: i18n("Temperature spacing:")
+            automaticValue: -1
+            from: 0
+            to: 64
+            suggested: 4
+            enabled: type.currentIndex !== 1 && ((showCpu.checked && showCpuTemp.checked)
+                                                 || (showGpu.checked && showGpuTemp.checked)
+                                                 || (showRam.checked && showRamTemp.checked))
         }
 
         // What is particular to a value overrides what they share.

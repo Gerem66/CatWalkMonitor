@@ -86,6 +86,14 @@
         <entry name="valuesOrientation" type="Int">
             <default>0</default>
         </entry>
+        <!-- Space between the elements, in pixels; -1 lets the widget choose. -->
+        <entry name="spacing" type="Int">
+            <default>-1</default>
+        </entry>
+        <!-- Space between a usage and its temperature, likewise. -->
+        <entry name="temperatureSpacing" type="Int">
+            <default>-1</default>
+        </entry>
         <!-- 0: the cat and the readings, 1: the cat only, 2: the readings only. -->
         <entry name="type" type="Int">
             <default>0</default>

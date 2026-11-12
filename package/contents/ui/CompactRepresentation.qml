@@ -40,10 +40,13 @@ Item {
     readonly property bool stacked: showBoth && (vertical || cfg.catPosition >= 2)
     readonly property bool valuesInColumn: cfg.valuesOrientation === 0 ? vertical : cfg.valuesOrientation === 2
     readonly property bool catFirst: cfg.catPosition % 2 === 0
-    // The space between the elements is a share of the font size. Lines of
-    // text already carry space above and below: none is added between them.
+    // The space between the elements is the one asked for or, left to the
+    // widget, a share of the font size. Lines of text already carry space
+    // above and below: the widget adds none between them by itself.
+    readonly property bool automaticSpacing: cfg.spacing < 0
     readonly property real gapEm: 0.5
-    readonly property real gap: Math.round(gapEm * fontSize)
+    readonly property real gap: automaticSpacing ? Math.round(gapEm * fontSize) : cfg.spacing
+    readonly property real lineGap: automaticSpacing ? 0 : cfg.spacing
 
     /** The load the cat reacts to. */
     readonly property real catUsage: {
@@ -97,10 +100,10 @@ Item {
             return 6;
         }
         // A length is `em * size + pixels`: what grows with the font, and
-        // what does not. The spacing is of the first kind, up to the pixel
-        // its rounding can add.
-        const spacingEm = gapEm;
-        const spacingPixels = 1;
+        // what does not. The automatic spacing is of the first kind, up to
+        // the pixel its rounding can add; a spacing asked for is of the second.
+        const spacingEm = automaticSpacing ? gapEm : 0;
+        const spacingPixels = automaticSpacing ? 1 : cfg.spacing;
         let em;
         let pixels;
         // A single line takes half the thickness. More than that has to fit...
@@ -118,7 +121,7 @@ Item {
             // ...or in the height of the panel, less what the cat takes above or below.
             const lines = valuesInColumn ? values.length : 1;
             em = lines * cpuValue.lineEm;
-            pixels = 0;
+            pixels = (lines - 1) * lineGap;
             if (stacked) {
                 em += spacingEm;
                 pixels += catSize + spacingPixels;
@@ -181,7 +184,7 @@ Item {
             visible: compact.showValues
             flow: compact.valuesInColumn ? GridLayout.TopToBottom : GridLayout.LeftToRight
             columnSpacing: compact.gap
-            rowSpacing: 0
+            rowSpacing: compact.lineGap
 
             MetricItem {
                 id: cpuValue
@@ -192,6 +195,7 @@ Item {
                 color: compact.valueColor("cpu", usage)
                 icon: Qt.resolvedUrl("../images/cpu.svg")
                 showIcon: compact.cfg.showIcons
+                temperatureSpacing: compact.cfg.temperatureSpacing
                 Layout.fillWidth: compact.valuesInColumn
             }
             MetricItem {
@@ -203,6 +207,7 @@ Item {
                 color: compact.valueColor("gpu", usage)
                 icon: Qt.resolvedUrl("../images/gpu.svg")
                 showIcon: compact.cfg.showIcons
+                temperatureSpacing: compact.cfg.temperatureSpacing
                 Layout.fillWidth: compact.valuesInColumn
             }
             MetricItem {
@@ -214,6 +219,7 @@ Item {
                 color: compact.valueColor("ram", usage)
                 icon: Qt.resolvedUrl("../images/memory.svg")
                 showIcon: compact.cfg.showIcons
+                temperatureSpacing: compact.cfg.temperatureSpacing
                 Layout.fillWidth: compact.valuesInColumn
             }
         }
