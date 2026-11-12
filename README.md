@@ -43,3 +43,19 @@ itself based on the CatWalk plasmoid by Yuri Saurov
 ([Plasma 6](https://store.kde.org/p/2137844/),
 [Plasma 5](https://store.kde.org/p/2055225/)). The history of both projects
 is kept in this repository.
+
+The cat was drawn by Takuto Nakamura for [RunCat](https://github.com/Kyome22/menubar_runcat)
+(Apache License 2.0); these drawings very likely came to CatWalk through the
+[RunCat GNOME extension](https://github.com/win0err/gnome-runcat) by Sergei
+Kolesnikov (GPL-3.0).
+
+## License
+
+CatWalk Monitor is free software: you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the Free
+Software Foundation, either version 3 of the License, or (at your option)
+any later version. See [LICENSE](LICENSE).
+
+CatWalk and CatWalk Neo are distributed under the GNU General Public License,
+version 2 or any later version; this fork uses version 3, the one that is
+compatible with the licenses of the artwork.

@@ -27,7 +27,7 @@
         ],
         "Icon": "animal-symbolic",
         "Id": "com.github.gerem66.catwalkmonitor",
-        "License": "GPL-2.0+",
+        "License": "GPL-3.0+",
         "Name": "CatWalk Monitor",
         "Website": "https://github.com/Gerem66/CatWalkMonitor",
         "Version": "3.0.1"
