@@ -13,6 +13,7 @@ KCM.SimpleKCM {
     property alias cfg_showGpuTemp: showGpuTemp.checked
     property alias cfg_showRamTemp: showRamTemp.checked
     property alias cfg_type: type.currentIndex
+    property alias cfg_valuesOrientation: valuesOrientation.currentIndex
     property alias cfg_catSource: catSource.currentIndex
     property alias cfg_catPosition: catPosition.currentIndex
     property alias cfg_highUsageColorEnabled: catHighUsage.active
@@ -87,6 +88,13 @@ KCM.SimpleKCM {
                     i18n("The highest of the selected values"),
                     i18n("The average of the selected values")]
             enabled: type.currentIndex !== 2
+        }
+
+        Controls.ComboBox {
+            id: valuesOrientation
+            Kirigami.FormData.label: i18n("Arrange the values:")
+            model: [i18n("Along the panel"), i18n("In a row"), i18n("In a column")]
+            enabled: type.currentIndex !== 1
         }
 
         Kirigami.Separator {

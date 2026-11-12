@@ -34,9 +34,10 @@ Item {
     readonly property bool showBoth: showCat && showValues
 
     // Everything follows the panel: side by side along a horizontal one,
-    // one above the other down a vertical one.
+    // one above the other down a vertical one. The readings can also be
+    // asked to be in a row or in a column wherever the widget is.
     readonly property bool stacked: showBoth && vertical
-    readonly property bool valuesInColumn: vertical
+    readonly property bool valuesInColumn: cfg.valuesOrientation === 0 ? vertical : cfg.valuesOrientation === 2
     readonly property bool catFirst: cfg.catPosition === 0
     // The space between the elements is a share of the font size. Lines of
     // text already carry space above and below: none is added between them.
@@ -85,12 +86,28 @@ Item {
             // No text to size, and nothing to divide the room by.
             return 6;
         }
-        // A single line takes half the thickness. In a vertical panel each
-        // value, on its own line, also has to fit in the width: it is at most
-        // `em * size + pixels` wide, what grows with the font and what does not.
+        // A length is `em * size + pixels`: what grows with the font, and
+        // what does not. The spacing is of the first kind, up to the pixel
+        // its rounding can add.
+        const spacingEm = gapEm;
+        const spacingPixels = 1;
+        let em;
+        let pixels;
+        // A single line takes half the thickness. More than that has to fit...
         let size = thickness / 2;
-        if (vertical) {
+        if (vertical && valuesInColumn) {
+            // ...in the width of the panel, each value on its own line,
             size = Math.min(size, ...values.map(value => (thickness - value.pixels) / value.em));
+        } else if (vertical) {
+            // ...or all of them side by side,
+            const gaps = values.length - 1;
+            em = values.reduce((sum, value) => sum + value.em, 0) + gaps * spacingEm;
+            pixels = values.reduce((sum, value) => sum + value.pixels, 0) + gaps * spacingPixels;
+            size = Math.min(size, (thickness - pixels) / em);
+        } else {
+            // ...or in the height of the panel.
+            const lines = valuesInColumn ? values.length : 1;
+            size = Math.min(size, thickness / (lines * cpuValue.lineEm));
         }
         return Math.max(6, Math.floor(size));
     }
