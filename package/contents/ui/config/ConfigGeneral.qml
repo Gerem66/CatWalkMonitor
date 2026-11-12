@@ -17,9 +17,11 @@ KCM.SimpleKCM {
     property alias cfg_valuesOrientation: valuesOrientation.currentIndex
     property alias cfg_catSource: catSource.currentIndex
     property alias cfg_catPosition: catPosition.currentIndex
+    property alias cfg_catSize: catSize.value
     property alias cfg_highUsageColorEnabled: catHighUsage.active
     property alias cfg_highUsageThreshold: catHighUsage.threshold
     property alias cfg_highUsageColor: catHighUsage.color
+    property alias cfg_textSize: textSize.value
     property alias cfg_idle: idle.value
     property alias cfg_walkThreshold: walkThreshold.value
     property alias cfg_updateRateLimit: updateRateLimit.value
@@ -111,6 +113,15 @@ KCM.SimpleKCM {
             enabled: type.currentIndex === 0
         }
 
+        SizeChoice {
+            id: catSize
+            Kirigami.FormData.label: i18n("Size:")
+            from: 1
+            to: 256
+            suggested: 32
+            enabled: type.currentIndex !== 2
+        }
+
         HighUsageChoice {
             id: catHighUsage
             Kirigami.FormData.label: i18n("High usage:")
@@ -121,6 +132,15 @@ KCM.SimpleKCM {
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
             Kirigami.FormData.label: i18nc("@title:group", "Values")
+        }
+
+        SizeChoice {
+            id: textSize
+            Kirigami.FormData.label: i18n("Size:")
+            from: 1
+            to: 128
+            suggested: 14
+            enabled: type.currentIndex !== 1
         }
 
         Controls.CheckBox {

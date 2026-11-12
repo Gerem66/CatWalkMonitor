@@ -45,6 +45,13 @@
         <entry name="catPosition" type="Int">
             <default>0</default>
         </entry>
+        <!-- Sizes in pixels; 0 lets the widget choose from the room it has. -->
+        <entry name="catSize" type="Int">
+            <default>0</default>
+        </entry>
+        <entry name="textSize" type="Int">
+            <default>0</default>
+        </entry>
         <!-- The cat takes another color above a given load. -->
         <entry name="highUsageColorEnabled" type="Bool">
             <default>false</default>

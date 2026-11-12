@@ -70,12 +70,18 @@ Item {
         }
     }
 
-    // Sizes are chosen from the room there is.
+    // Sizes are chosen from the room there is, unless the settings fix them.
     readonly property real catSize: {
+        if (cfg.catSize > 0) {
+            return cfg.catSize;
+        }
         // Above or below the readings, the cat leaves them half the thickness.
         return stacked && !vertical ? Math.round(thickness / 2) : thickness;
     }
     readonly property real fontSize: {
+        if (cfg.textSize > 0) {
+            return cfg.textSize;
+        }
         const values = [];
         if (cfg.showCpu) {
             values.push(cpuValue);
