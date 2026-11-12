@@ -1,119 +1,140 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
-import QtQuick.Layouts
 import QtQuick.Controls as Controls
-import org.kde.kirigami as Kirigami
+import QtQuick.Layouts
 import org.kde.kcmutils as KCM
-import org.kde.kquickcontrols as KQuickControls
+import org.kde.kirigami as Kirigami
 
 KCM.SimpleKCM {
-    property alias cfg_idle: idleSlider.value
-    property alias cfg_type: typeBox.currentIndex
-    property alias cfg_iconPosition: iconPositionBox.currentIndex
-    property alias cfg_highCpuColorEnabled: highCpuColorCheckBox.checked
-    property alias cfg_highCpuThreshold: highCpuThresholdSpinBox.value
-    property alias cfg_highCpuColor: highCpuColorButton.color
-    property alias cfg_updateRateLimit: updateRateLimitSpinBox.value
-    property alias cfg_frameRate: frameRateSpinBox.value
+    property alias cfg_showCpu: showCpu.checked
+    property alias cfg_showGpu: showGpu.checked
+    property alias cfg_showRam: showRam.checked
+    property alias cfg_type: type.currentIndex
+    property alias cfg_catSource: catSource.currentIndex
+    property alias cfg_catPosition: catPosition.currentIndex
+    property alias cfg_highUsageColorEnabled: catHighUsage.active
+    property alias cfg_highUsageThreshold: catHighUsage.threshold
+    property alias cfg_highUsageColor: catHighUsage.color
+    property alias cfg_idle: idle.value
+    property alias cfg_updateRateLimit: updateRateLimit.value
+    property alias cfg_frameRate: frameRate.value
+
     Kirigami.FormLayout {
-        id: root
+        Controls.ComboBox {
+            id: type
+            Kirigami.FormData.label: i18n("Display:")
+            model: [i18n("Cat and values"), i18n("Cat only"), i18n("Values only")]
+        }
+
+        ColumnLayout {
+            Kirigami.FormData.label: i18n("Values:")
+            Kirigami.FormData.buddyFor: showCpu
+
+            Controls.CheckBox {
+                id: showCpu
+                text: i18n("CPU usage")
+            }
+            Controls.CheckBox {
+                id: showGpu
+                text: i18n("GPU usage")
+            }
+            Controls.CheckBox {
+                id: showRam
+                text: i18n("Memory usage")
+            }
+        }
+
+        // Without this, selecting values that the panel does not show looks pointless.
+        Controls.Label {
+            Layout.maximumWidth: Kirigami.Units.gridUnit * 22
+            visible: type.currentIndex === 1
+            text: i18n("With the cat alone, the selected values appear in its tooltip, and the cat can follow them.")
+            font: Kirigami.Theme.smallFont
+            wrapMode: Text.WordWrap
+            opacity: 0.75
+        }
+
+        Controls.ComboBox {
+            id: catSource
+            Kirigami.FormData.label: i18n("The cat follows:")
+            model: [i18n("CPU usage"), i18n("GPU usage"), i18n("Memory usage"),
+                    i18n("The highest of the selected values"),
+                    i18n("The average of the selected values")]
+            enabled: type.currentIndex !== 2
+        }
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18nc("@title:group", "Cat")
+        }
+
+        Controls.ComboBox {
+            id: catPosition
+            Kirigami.FormData.label: i18n("Position:")
+            model: [i18n("Before the values"), i18n("After the values")]
+            enabled: type.currentIndex === 0
+        }
+
+        HighUsageChoice {
+            id: catHighUsage
+            Kirigami.FormData.label: i18n("High usage:")
+            dialogTitle: i18nc("@title:window", "Color of the cat at high usage")
+            enabled: type.currentIndex !== 2
+        }
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18nc("@title:group", "Advanced")
+        }
 
         RowLayout {
-            Layout.fillWidth: true
-            Kirigami.FormData.label: i18n("Idle threshold")
-            Controls.Slider {
-                Layout.fillWidth: true
-                id: idleSlider
+            Kirigami.FormData.label: i18n("Idle threshold:")
+            enabled: type.currentIndex !== 2
+
+            ValueSlider {
+                id: idle
                 from: 0
                 to: 100
                 stepSize: 1
+                format: value => i18nc("a percentage", "%1%", Math.round(value))
             }
-            Controls.Label {
-                id: label
-                text: idleSlider.value + "%"
-                Layout.minimumWidth: textMetrics.width
-                Layout.minimumHeight: textMetrics.height
-                horizontalAlignment: Text.AlignRight
-            }
-            TextMetrics {
-                id: textMetrics
-                text: "199%"
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("The cat sleeps while the usage it follows is under this value.")
             }
         }
-        Controls.ComboBox {
-            Layout.fillWidth: true
-            Kirigami.FormData.label: i18n("Displaying items")
-            id: typeBox
-            model: [i18n("Character and percentage"), i18n(
-                    "Character only"), i18n("Percentage only")]
-        }
-        Controls.ComboBox {
-            id: iconPositionBox
-            Layout.fillWidth: true
-            Kirigami.FormData.label: i18n("Icon position")
-            model: [i18n("Left"), i18n("Right")]
-            enabled: typeBox.currentIndex === 0
-        }
-        Controls.CheckBox {
-            id: highCpuColorCheckBox
-            text: i18n("Change cat colour at high CPU usage")
-        }
+
         RowLayout {
-            Kirigami.FormData.label: i18n("CPU usage threshold")
-            enabled: highCpuColorCheckBox.checked
-            Controls.SpinBox {
-                id: highCpuThresholdSpinBox
-                from: 0
-                to: 100
-                editable: true
+            Kirigami.FormData.label: i18n("Frame rate:")
+            enabled: type.currentIndex !== 2
+
+            ValueSlider {
+                id: frameRate
+                from: 5
+                to: 60
+                stepSize: 5
+                format: value => i18nc("frames per second", "%1 fps", Math.round(value))
             }
-            Controls.Label {
-                text: "%"
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("How many times per second the cat is drawn while it runs. A lower value is less smooth and lighter on the system.")
             }
         }
-        KQuickControls.ColorButton {
-            id: highCpuColorButton
-            Kirigami.FormData.label: i18n("High CPU colour")
-            dialogTitle: i18n("Choose high CPU colour")
-            showAlphaChannel: false
-            enabled: highCpuColorCheckBox.checked
-        }
+
         Controls.SpinBox {
-            id: updateRateLimitSpinBox
-            Layout.fillWidth: true
-            Kirigami.FormData.label: i18nd("KSysGuardSensorFaces",
-                                           "Minimum Time Between Updates:")
+            id: updateRateLimit
+            Kirigami.FormData.label: i18nd("KSysGuardSensorFaces", "Minimum Time Between Updates:")
             from: 0
             to: 60000
             stepSize: 500
-            editable: true
-            textFromValue: function (value, locale) {
+            // Its text is a sentence, not a number: it is not meant to be typed in.
+            editable: false
+            textFromValue: value => {
                 if (value <= 0) {
-                    return i18nd("KSysGuardSensorFaces", "No Limit")
-                } else {
-                    var seconds = value / 1000
-                    if (seconds == 1) {
-                        return i18nd("KSysGuardSensorFaces", "1 second")
-                    } else {
-                        return i18nd("KSysGuardSensorFaces",
-                                     "%1 seconds", seconds)
-                    }
+                    return i18nd("KSysGuardSensorFaces", "No Limit");
                 }
+                const seconds = value / 1000;
+                return seconds === 1 ? i18nd("KSysGuardSensorFaces", "1 second")
+                                     : i18nd("KSysGuardSensorFaces", "%1 seconds", seconds);
             }
-            valueFromText: function (value, locale) {
-                var v = parseInt(value)
-                if (isNaN(v)) {
-                    return 0
-                } else {
-                    return v * 1000
-                }
-            }
-        }
-        Controls.SpinBox {
-            id: frameRateSpinBox
-            Kirigami.FormData.label: i18n("Animation frame rate")
-            from: 1
-            to: 60
-            editable: true
         }
     }
 }
