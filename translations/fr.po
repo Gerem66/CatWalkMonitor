@@ -1,0 +1,378 @@
+# French translation of CatWalk Monitor.
+# This file is distributed under the same license as the CatWalk Monitor package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.gerem66.catwalkmonitor\n"
+"Report-Msgid-Bugs-To: https://github.com/Gerem66/CatWalkMonitor/issues\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: contents/config/config.qml
+#, kde-format
+msgid "General"
+msgstr "Général"
+
+#: contents/ui/config/ColorChoice.qml
+#, kde-format
+msgctxt "@option:check use a color of one's own instead of the theme's"
+msgid "Custom"
+msgstr "Personnalisée"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Display:"
+msgstr "Affichage :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Cat and values"
+msgstr "Chat et valeurs"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Cat only"
+msgstr "Chat seul"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Values only"
+msgstr "Valeurs seules"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Values:"
+msgstr "Valeurs :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "CPU usage"
+msgstr "Utilisation du processeur"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "and temperature"
+msgstr "et température"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "GPU usage"
+msgstr "Utilisation du GPU"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Memory usage"
+msgstr "Utilisation de la mémoire"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"Only memory modules with a temperature sensor report one, which is common "
+"with DDR5 and rare before. Nothing is shown otherwise."
+msgstr ""
+"Seules les barrettes de mémoire dotées d'un capteur de température en "
+"indiquent une, ce qui est courant en DDR5 et rare auparavant. Sinon, rien "
+"n'est affiché."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"With the cat alone, the selected values appear in its tooltip, and the cat "
+"can follow them."
+msgstr ""
+"Avec le chat seul, les valeurs cochées apparaissent dans son infobulle, et "
+"le chat peut les suivre."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The cat follows:"
+msgstr "Le chat suit :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The highest of the selected values"
+msgstr "La plus haute des valeurs cochées"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The average of the selected values"
+msgstr "La moyenne des valeurs cochées"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Arrange the values:"
+msgstr "Disposition des valeurs :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Along the panel"
+msgstr "Dans le sens du tableau de bord"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "In a row"
+msgstr "En ligne"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "In a column"
+msgstr "En colonne"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Spacing:"
+msgstr "Espacement :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Cat"
+msgstr "Chat"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Position:"
+msgstr "Position :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Before the values"
+msgstr "Avant les valeurs"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "After the values"
+msgstr "Après les valeurs"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Above the values"
+msgstr "Au-dessus des valeurs"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Below the values"
+msgstr "En dessous des valeurs"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Size:"
+msgstr "Taille :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Color:"
+msgstr "Couleur :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the cat"
+msgstr "Couleur du chat"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "High usage:"
+msgstr "Forte utilisation :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the cat at high usage"
+msgstr "Couleur du chat en cas de forte utilisation"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Values"
+msgstr "Valeurs"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the values"
+msgstr "Couleur des valeurs"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Icons:"
+msgstr "Icônes :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Show an icon before each value"
+msgstr "Afficher une icône devant chaque valeur"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Decimals:"
+msgstr "Décimales :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Temperature spacing:"
+msgstr "Espacement de la température :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "CPU"
+msgstr "Processeur"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the CPU value"
+msgstr "Couleur de la valeur du processeur"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the CPU value at high usage"
+msgstr "Couleur de la valeur du processeur en cas de forte utilisation"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "GPU"
+msgstr "GPU"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the GPU value"
+msgstr "Couleur de la valeur du GPU"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the GPU value at high usage"
+msgstr "Couleur de la valeur du GPU en cas de forte utilisation"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Memory"
+msgstr "Mémoire"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the memory value"
+msgstr "Couleur de la valeur de la mémoire"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the memory value at high usage"
+msgstr "Couleur de la valeur de la mémoire en cas de forte utilisation"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Advanced"
+msgstr "Avancé"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Idle threshold:"
+msgstr "Seuil d'inactivité :"
+
+#: contents/ui/config/ConfigGeneral.qml contents/ui/main.qml
+#, kde-format
+msgctxt "a percentage"
+msgid "%1%"
+msgstr "%1 %"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The cat sleeps while the usage it follows is under this value."
+msgstr ""
+"Le chat dort tant que l'utilisation qu'il suit reste sous cette valeur."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Walk below:"
+msgstr "Marche en dessous de :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"The cat walks while the usage it follows is under this value, and runs from "
+"there on. At 0 it always runs."
+msgstr ""
+"Le chat marche tant que l'utilisation qu'il suit reste sous cette valeur, et "
+"court à partir de celle-ci. À 0, il court toujours."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Frame rate:"
+msgstr "Fréquence d'images :"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "frames per second"
+msgid "%1 fps"
+msgstr "%1 images/s"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"How many times per second the cat is drawn while it runs. A lower value is "
+"less smooth and lighter on the system."
+msgstr ""
+"Nombre de fois par seconde où le chat est dessiné lorsqu'il court. Une "
+"valeur plus basse est moins fluide et plus légère pour le système."
+
+#: contents/ui/config/HighUsageChoice.qml
+#, kde-format
+msgid "Change color above"
+msgstr "Changer de couleur au-delà de"
+
+#: contents/ui/config/HighUsageChoice.qml
+#, kde-format
+msgctxt "@label unit after a number field"
+msgid "%"
+msgstr "%"
+
+#: contents/ui/config/SizeChoice.qml
+#, kde-format
+msgctxt "@option:check the widget chooses the size"
+msgid "Automatic"
+msgstr "Automatique"
+
+#: contents/ui/config/SizeChoice.qml
+#, kde-format
+msgctxt "@label unit after a number field"
+msgid "px"
+msgstr "px"
+
+#: contents/ui/main.qml
+#, kde-format
+msgctxt "there is no reading for this value"
+msgid "unavailable"
+msgstr "indisponible"
+
+#: contents/ui/main.qml
+#, kde-format
+msgctxt "a usage, then a temperature in degrees Celsius"
+msgid "%1, %2 °C"
+msgstr "%1, %2 °C"
+
+#: contents/ui/main.qml
+#, kde-format
+msgid "CPU: %1"
+msgstr "Processeur : %1"
+
+#: contents/ui/main.qml
+#, kde-format
+msgid "GPU: %1"
+msgstr "GPU : %1"
+
+#: contents/ui/main.qml
+#, kde-format
+msgid "Memory: %1"
+msgstr "Mémoire : %1"
