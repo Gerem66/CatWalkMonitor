@@ -191,6 +191,7 @@ Item {
                 visible: compact.cfg.showCpu
                 usage: compact.metrics.cpuUsage
                 temperature: compact.metrics.cpuTemperature
+                decimals: compact.cfg.decimals
                 fontSize: compact.fontSize
                 color: compact.valueColor("cpu", usage)
                 icon: Qt.resolvedUrl("../images/cpu.svg")
@@ -203,6 +204,7 @@ Item {
                 visible: compact.cfg.showGpu
                 usage: compact.metrics.gpuUsage
                 temperature: compact.metrics.gpuTemperature
+                decimals: compact.cfg.decimals
                 fontSize: compact.fontSize
                 color: compact.valueColor("gpu", usage)
                 icon: Qt.resolvedUrl("../images/gpu.svg")
@@ -215,6 +217,7 @@ Item {
                 visible: compact.cfg.showRam
                 usage: compact.metrics.ramUsage
                 temperature: compact.metrics.ramTemperature
+                decimals: compact.cfg.decimals
                 fontSize: compact.fontSize
                 color: compact.valueColor("ram", usage)
                 icon: Qt.resolvedUrl("../images/memory.svg")

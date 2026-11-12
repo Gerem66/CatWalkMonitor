@@ -14,6 +14,8 @@ Item {
     property real usage: NaN
     /** In degrees Celsius; NaN when there is none to show. */
     property real temperature: NaN
+    /** Digits after the decimal point of the usage. */
+    property int decimals: 1
     /** Font size, in pixels. */
     property real fontSize: 12
     /** Color of the text and of the icon. */
@@ -41,6 +43,9 @@ Item {
                                    + (hasTemperature ? 2 + (automaticTemperatureSpacing ? 0 : temperatureSpacing) : 0)
     /** Height of a line of text for a font size of one pixel. */
     readonly property real lineEm: usageText.lineEm
+
+    // A new format is a new width: there is nothing to wait for.
+    onDecimalsChanged: usageText.fit()
 
     implicitWidth: (showIcon ? image.width + Math.round(iconGapEm * fontSize) : 0) + texts.implicitWidth
     implicitHeight: usageText.implicitHeight
@@ -74,7 +79,7 @@ Item {
 
         StableText {
             id: usageText
-            text: isFinite(metric.usage) ? metric.usage.toLocaleString(Qt.locale(), "f", 1) + "%" : "–"
+            text: isFinite(metric.usage) ? metric.usage.toLocaleString(Qt.locale(), "f", metric.decimals) + "%" : "–"
             fontSize: metric.fontSize
             color: metric.color
             horizontalAlignment: Text.AlignRight

@@ -13,6 +13,7 @@ KCM.SimpleKCM {
     property alias cfg_showGpuTemp: showGpuTemp.checked
     property alias cfg_showRamTemp: showRamTemp.checked
     property alias cfg_showIcons: showIcons.checked
+    property alias cfg_decimals: decimals.value
     property alias cfg_cpuColorCustom: cpuColor.custom
     property alias cfg_cpuColor: cpuColor.color
     property alias cfg_cpuHighUsageColorEnabled: cpuHighUsage.active
@@ -191,6 +192,16 @@ KCM.SimpleKCM {
             id: showIcons
             Kirigami.FormData.label: i18n("Icons:")
             text: i18n("Show an icon before each value")
+            enabled: type.currentIndex !== 1
+        }
+
+        Controls.SpinBox {
+            id: decimals
+            Kirigami.FormData.label: i18n("Decimals:")
+            from: 0
+            to: 2
+            editable: true
+            live: true
             enabled: type.currentIndex !== 1
         }
 
