@@ -2,10 +2,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 """Build the cat sprite sheet from the keyframes drawn in art/.
 
-The run is drawn as five poses. Flipping through five poses looks choppy
-at low speed, so this script computes the poses in between once, offline,
-and lays every pose out in a single SVG sprite sheet. The widget then only
-has to pick a cell of that sheet for each frame it renders.
+Each gait, the run and the walk, is drawn as five poses. Flipping through
+five poses looks choppy at low speed, so this script computes the poses in
+between once, offline, and lays every pose out in a single SVG sprite
+sheet. The widget then only has to pick a cell of that sheet for each
+frame it renders.
 
 In-betweens are made by morphing the silhouette of one pose into the next:
 both outlines are sampled, matched point to point with a dynamic time
@@ -13,6 +14,9 @@ warping (so that ears go to ears), and the matched points are interpolated.
 The matching is pinned at the tips of the paws, given below for each
 drawing, so that every leg goes to a leg. Eyes and inner ears are matched
 by position.
+
+The drawings of the run are the original artwork. Those of the walk were
+first drawn by tools/draft_walk.py.
 
 Usage:  tools/generate_sprites.py            (from the repository root)
 Needs nothing but the Python standard library.
@@ -25,6 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 RUN = [ROOT / "art" / f"run-{i}.svg" for i in range(5)]
+WALK = [ROOT / "art" / f"walk-{i}.svg" for i in range(5)]
 IDLE = ROOT / "art" / "idle.svg"
 OUTPUT = ROOT / "package" / "contents" / "images" / "cat.svg"
 
@@ -37,9 +42,19 @@ RUN_PAWS = [
     {"front": [(358, 255), (312, 302)], "hind": [(163, 278)]},
     {"front": [(265, 292)], "hind": [(208, 270)]},
 ]
+WALK_PAWS = [
+    {"front": [(307, 290), (245, 290)], "hind": [(166, 290)]},
+    {"front": [(294, 290), (254, 279)], "hind": [(194, 279), (154, 290)]},
+    {"front": [(282, 290)], "hind": [(203, 290), (141, 290)]},
+    {"front": [(310, 279), (270, 290)], "hind": [(191, 290), (129, 290)]},
+    {"front": [(319, 290), (257, 290)], "hind": [(178, 290), (138, 279)]},
+]
 
-# Poses made from one drawing to the next, that drawing included.
+# Poses made from one drawing to the next, that drawing included. The
+# drawings of the walk are five moments of two footfalls, much closer to
+# one another than those of the run, which are a whole stride.
 RUN_STEPS = 12
+WALK_STEPS = 5
 
 CELL = 388          # size of one pose, in SVG units (the keyframes' canvas)
 COLUMNS = 10        # cells per row of the sheet
@@ -461,6 +476,7 @@ def main():
     args = parser.parse_args()
 
     run = build_poses(RUN, RUN_PAWS, RUN_STEPS)
+    walk = build_poses(WALK, WALK_PAWS, WALK_STEPS)
 
     idle = sorted(load_polygons(IDLE), key=lambda p: abs(signed_area(p)), reverse=True)
     # The sleeping cat is drawn as is: body wound one way, everything that
@@ -474,8 +490,8 @@ def main():
         inside = left < cx < right and top < cy < bottom
         idle_polygons.append(oriented(polygon, positive=not inside))
 
-    count, rows = write_sheet(run, idle_polygons, args.output)
-    print(f"{args.output}: {count} poses ({len(run)} running, 1 idle), "
+    count, rows = write_sheet(run + walk, idle_polygons, args.output)
+    print(f"{args.output}: {count} poses ({len(run)} running, {len(walk)} walking, 1 idle), "
           f"{COLUMNS}x{rows} cells, {args.output.stat().st_size // 1024} KiB")
 
 

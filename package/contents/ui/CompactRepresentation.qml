@@ -127,6 +127,7 @@ Item {
             visible: compact.showCat
             usage: compact.catUsage
             idleThreshold: compact.cfg.idle
+            walkThreshold: compact.cfg.walkThreshold
             frameRate: compact.cfg.frameRate
             color: compact.catColor
         }

@@ -55,6 +55,12 @@
             <min>0</min>
             <max>100</max>
         </entry>
+        <!-- The cat walks under this load, in percent, and runs from there on; 0 makes it always run. -->
+        <entry name="walkThreshold" type="Int">
+            <default>30</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
         <!-- Minimum time between two readings, in milliseconds. -->
         <entry name="updateRateLimit" type="Int">
             <default>1000</default>

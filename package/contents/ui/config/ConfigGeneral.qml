@@ -19,6 +19,7 @@ KCM.SimpleKCM {
     property alias cfg_highUsageThreshold: catHighUsage.threshold
     property alias cfg_highUsageColor: catHighUsage.color
     property alias cfg_idle: idle.value
+    property alias cfg_walkThreshold: walkThreshold.value
     property alias cfg_updateRateLimit: updateRateLimit.value
     property alias cfg_frameRate: frameRate.value
 
@@ -125,6 +126,22 @@ KCM.SimpleKCM {
             }
             Kirigami.ContextualHelpButton {
                 toolTipText: i18n("The cat sleeps while the usage it follows is under this value.")
+            }
+        }
+
+        RowLayout {
+            Kirigami.FormData.label: i18n("Walk below:")
+            enabled: type.currentIndex !== 2
+
+            ValueSlider {
+                id: walkThreshold
+                from: 0
+                to: 100
+                stepSize: 5
+                format: value => i18nc("a percentage", "%1%", Math.round(value))
+            }
+            Kirigami.ContextualHelpButton {
+                toolTipText: i18n("The cat walks while the usage it follows is under this value, and runs from there on. At 0 it always runs.")
             }
         }
 
