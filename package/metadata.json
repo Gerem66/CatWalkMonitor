@@ -32,7 +32,7 @@
         "License": "GPL-3.0+",
         "Name": "CatWalk Monitor",
         "Website": "https://github.com/Gerem66/CatWalkMonitor",
-        "Version": "3.0.1"
+        "Version": "4.0.0"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
     "X-Plasma-Provides": [
