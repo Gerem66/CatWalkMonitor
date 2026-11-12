@@ -1,15 +1,8 @@
-cmake_minimum_required(VERSION 3.20 FATAL_ERROR)
-project(catwalk)
+cmake_minimum_required(VERSION 3.16)
 
-set(QT_MAJOR_VERSION 6)
+# The widget is made of QML and data files only. There is nothing to compile,
+# so installing it needs neither a compiler nor the KDE development packages.
+project(catwalk-monitor VERSION 3.0.1 LANGUAGES NONE)
 
-find_package(ECM 6.0.0 REQUIRED NO_MODULE)
-set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
-
-include(KDEInstallDirs)
-
-find_package(Plasma REQUIRED)
-find_package(KF6I18n NO_MODULE)
-
-plasma_install_package(package com.github.gerem66.catwalkmonitor)
-ki18n_install(translations)
+install(DIRECTORY package/
+        DESTINATION share/plasma/plasmoids/com.github.gerem66.catwalkmonitor)

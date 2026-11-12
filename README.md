@@ -35,6 +35,9 @@ To remove it:
 kpackagetool6 --type Plasma/Applet --remove com.github.gerem66.catwalkmonitor
 ```
 
+The package can also be installed with CMake, which needs no compiler:
+`cmake -B build && cmake --install build --prefix ~/.local`.
+
 ## Credits
 
 CatWalk Monitor is a fork of
