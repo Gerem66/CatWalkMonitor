@@ -137,7 +137,10 @@ Item {
     }
 
     /** The color of a reading, `name` being the prefix of its settings. */
-    function valueColor(name) {
+    function valueColor(name, usage) {
+        if (cfg[name + "HighUsageColorEnabled"] && usage > cfg[name + "HighUsageThreshold"]) {
+            return cfg[name + "HighUsageColor"];
+        }
         return cfg[name + "ColorCustom"] ? cfg[name + "Color"] : textColor;
     }
 
@@ -186,7 +189,7 @@ Item {
                 usage: compact.metrics.cpuUsage
                 temperature: compact.metrics.cpuTemperature
                 fontSize: compact.fontSize
-                color: compact.valueColor("cpu")
+                color: compact.valueColor("cpu", usage)
                 icon: Qt.resolvedUrl("../images/cpu.svg")
                 showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn
@@ -197,7 +200,7 @@ Item {
                 usage: compact.metrics.gpuUsage
                 temperature: compact.metrics.gpuTemperature
                 fontSize: compact.fontSize
-                color: compact.valueColor("gpu")
+                color: compact.valueColor("gpu", usage)
                 icon: Qt.resolvedUrl("../images/gpu.svg")
                 showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn
@@ -208,7 +211,7 @@ Item {
                 usage: compact.metrics.ramUsage
                 temperature: compact.metrics.ramTemperature
                 fontSize: compact.fontSize
-                color: compact.valueColor("ram")
+                color: compact.valueColor("ram", usage)
                 icon: Qt.resolvedUrl("../images/memory.svg")
                 showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn

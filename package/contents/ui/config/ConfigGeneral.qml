@@ -15,10 +15,19 @@ KCM.SimpleKCM {
     property alias cfg_showIcons: showIcons.checked
     property alias cfg_cpuColorCustom: cpuColor.custom
     property alias cfg_cpuColor: cpuColor.color
+    property alias cfg_cpuHighUsageColorEnabled: cpuHighUsage.active
+    property alias cfg_cpuHighUsageThreshold: cpuHighUsage.threshold
+    property alias cfg_cpuHighUsageColor: cpuHighUsage.color
     property alias cfg_gpuColorCustom: gpuColor.custom
     property alias cfg_gpuColor: gpuColor.color
+    property alias cfg_gpuHighUsageColorEnabled: gpuHighUsage.active
+    property alias cfg_gpuHighUsageThreshold: gpuHighUsage.threshold
+    property alias cfg_gpuHighUsageColor: gpuHighUsage.color
     property alias cfg_ramColorCustom: ramColor.custom
     property alias cfg_ramColor: ramColor.color
+    property alias cfg_ramHighUsageColorEnabled: ramHighUsage.active
+    property alias cfg_ramHighUsageThreshold: ramHighUsage.threshold
+    property alias cfg_ramHighUsageColor: ramHighUsage.color
     property alias cfg_type: type.currentIndex
     property alias cfg_valuesOrientation: valuesOrientation.currentIndex
     property alias cfg_catSource: catSource.currentIndex
@@ -187,6 +196,13 @@ KCM.SimpleKCM {
             enabled: type.currentIndex !== 1 && showCpu.checked
         }
 
+        HighUsageChoice {
+            id: cpuHighUsage
+            Kirigami.FormData.label: i18n("High usage:")
+            dialogTitle: i18nc("@title:window", "Color of the CPU value at high usage")
+            enabled: type.currentIndex !== 1 && showCpu.checked
+        }
+
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
             Kirigami.FormData.label: i18nc("@title:group", "GPU")
@@ -199,6 +215,13 @@ KCM.SimpleKCM {
             enabled: type.currentIndex !== 1 && showGpu.checked
         }
 
+        HighUsageChoice {
+            id: gpuHighUsage
+            Kirigami.FormData.label: i18n("High usage:")
+            dialogTitle: i18nc("@title:window", "Color of the GPU value at high usage")
+            enabled: type.currentIndex !== 1 && showGpu.checked
+        }
+
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
             Kirigami.FormData.label: i18nc("@title:group", "Memory")
@@ -208,6 +231,13 @@ KCM.SimpleKCM {
             id: ramColor
             Kirigami.FormData.label: i18n("Color:")
             dialogTitle: i18nc("@title:window", "Color of the memory value")
+            enabled: type.currentIndex !== 1 && showRam.checked
+        }
+
+        HighUsageChoice {
+            id: ramHighUsage
+            Kirigami.FormData.label: i18n("High usage:")
+            dialogTitle: i18nc("@title:window", "Color of the memory value at high usage")
             enabled: type.currentIndex !== 1 && showRam.checked
         }
 

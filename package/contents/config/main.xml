@@ -44,6 +44,40 @@
         <entry name="ramColor" type="Color">
             <default>#f67400</default>
         </entry>
+        <!-- Each reading takes another color above a usage of its own, as the cat does. -->
+        <entry name="cpuHighUsageColorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="cpuHighUsageThreshold" type="Int">
+            <default>80</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <entry name="cpuHighUsageColor" type="Color">
+            <default>#da4453</default>
+        </entry>
+        <entry name="gpuHighUsageColorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="gpuHighUsageThreshold" type="Int">
+            <default>80</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <entry name="gpuHighUsageColor" type="Color">
+            <default>#da4453</default>
+        </entry>
+        <entry name="ramHighUsageColorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="ramHighUsageThreshold" type="Int">
+            <default>80</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <entry name="ramHighUsageColor" type="Color">
+            <default>#da4453</default>
+        </entry>
         <!-- An icon before each reading, to tell them apart. -->
         <entry name="showIcons" type="Bool">
             <default>false</default>
