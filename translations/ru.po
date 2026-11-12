@@ -1,0 +1,372 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: com.github.gerem66.catwalkmonitor\n"
+"Report-Msgid-Bugs-To: https://github.com/Gerem66/CatWalkMonitor/issues\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: contents/config/config.qml
+#, kde-format
+msgid "General"
+msgstr "Основные"
+
+#: contents/ui/config/ColorChoice.qml
+#, kde-format
+msgctxt "@option:check use a color of one's own instead of the theme's"
+msgid "Custom"
+msgstr "Свой"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Display:"
+msgstr "Отображение:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Cat and values"
+msgstr "Кот и значения"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Cat only"
+msgstr "Только кот"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Values only"
+msgstr "Только значения"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Values:"
+msgstr "Значения:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "CPU usage"
+msgstr "Загрузка ЦП"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "and temperature"
+msgstr "и температура"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "GPU usage"
+msgstr "Загрузка ГП"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Memory usage"
+msgstr "Использование памяти"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"Only memory modules with a temperature sensor report one, which is common "
+"with DDR5 and rare before. Nothing is shown otherwise."
+msgstr ""
+"Температуру сообщают только модули памяти с датчиком температуры: это обычно "
+"для DDR5 и редко для более старых. Иначе ничего не показывается."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"With the cat alone, the selected values appear in its tooltip, and the cat "
+"can follow them."
+msgstr ""
+"Когда показан только кот, выбранные значения отображаются в его подсказке, и "
+"кот может следовать за ними."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The cat follows:"
+msgstr "Кот следует за:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The highest of the selected values"
+msgstr "Наибольшее из выбранных значений"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The average of the selected values"
+msgstr "Среднее выбранных значений"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Arrange the values:"
+msgstr "Расположение значений:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Along the panel"
+msgstr "Вдоль панели"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "In a row"
+msgstr "В строку"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "In a column"
+msgstr "В столбец"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Spacing:"
+msgstr "Интервал:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Cat"
+msgstr "Кот"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Position:"
+msgstr "Положение:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Before the values"
+msgstr "Перед значениями"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "After the values"
+msgstr "После значений"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Above the values"
+msgstr "Над значениями"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Below the values"
+msgstr "Под значениями"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Size:"
+msgstr "Размер:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Color:"
+msgstr "Цвет:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the cat"
+msgstr "Цвет кота"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "High usage:"
+msgstr "Высокая загрузка:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the cat at high usage"
+msgstr "Цвет кота при высокой загрузке"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Values"
+msgstr "Значения"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the values"
+msgstr "Цвет значений"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Icons:"
+msgstr "Значки:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Show an icon before each value"
+msgstr "Показывать значок перед каждым значением"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Decimals:"
+msgstr "Знаков после запятой:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Temperature spacing:"
+msgstr "Интервал перед температурой:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "CPU"
+msgstr "ЦП"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the CPU value"
+msgstr "Цвет значения ЦП"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the CPU value at high usage"
+msgstr "Цвет значения ЦП при высокой загрузке"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "GPU"
+msgstr "ГП"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the GPU value"
+msgstr "Цвет значения ГП"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the GPU value at high usage"
+msgstr "Цвет значения ГП при высокой загрузке"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Memory"
+msgstr "Память"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the memory value"
+msgstr "Цвет значения памяти"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:window"
+msgid "Color of the memory value at high usage"
+msgstr "Цвет значения памяти при высокой загрузке"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "@title:group"
+msgid "Advanced"
+msgstr "Дополнительно"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Idle threshold:"
+msgstr "Порог бездействия:"
+
+#: contents/ui/config/ConfigGeneral.qml contents/ui/main.qml
+#, kde-format
+msgctxt "a percentage"
+msgid "%1%"
+msgstr "%1%"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "The cat sleeps while the usage it follows is under this value."
+msgstr "Кот спит, пока загрузка, за которой он следует, ниже этого значения."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Walk below:"
+msgstr "Ходьба ниже:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"The cat walks while the usage it follows is under this value, and runs from "
+"there on. At 0 it always runs."
+msgstr ""
+"Кот идёт шагом, пока загрузка, за которой он следует, ниже этого значения, и "
+"бежит начиная с него. При 0 он всегда бежит."
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid "Frame rate:"
+msgstr "Частота кадров:"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgctxt "frames per second"
+msgid "%1 fps"
+msgstr "%1 кадр/с"
+
+#: contents/ui/config/ConfigGeneral.qml
+#, kde-format
+msgid ""
+"How many times per second the cat is drawn while it runs. A lower value is "
+"less smooth and lighter on the system."
+msgstr ""
+"Сколько раз в секунду рисуется кот, когда он движется. Меньшее значение — "
+"менее плавно, но меньше нагрузка на систему."
+
+#: contents/ui/config/HighUsageChoice.qml
+#, kde-format
+msgid "Change color above"
+msgstr "Менять цвет выше"
+
+#: contents/ui/config/HighUsageChoice.qml
+#, kde-format
+msgctxt "@label unit after a number field"
+msgid "%"
+msgstr "%"
+
+#: contents/ui/config/SizeChoice.qml
+#, kde-format
+msgctxt "@option:check the widget chooses the size"
+msgid "Automatic"
+msgstr "Автоматически"
+
+#: contents/ui/config/SizeChoice.qml
+#, kde-format
+msgctxt "@label unit after a number field"
+msgid "px"
+msgstr "пикс."
+
+#: contents/ui/main.qml
+#, kde-format
+msgctxt "there is no reading for this value"
+msgid "unavailable"
+msgstr "недоступно"
+
+#: contents/ui/main.qml
+#, kde-format
+msgctxt "a usage, then a temperature in degrees Celsius"
+msgid "%1, %2 °C"
+msgstr "%1, %2 °C"
+
+#: contents/ui/main.qml
+#, kde-format
+msgid "CPU: %1"
+msgstr "ЦП: %1"
+
+#: contents/ui/main.qml
+#, kde-format
+msgid "GPU: %1"
+msgstr "ГП: %1"
+
+#: contents/ui/main.qml
+#, kde-format
+msgid "Memory: %1"
+msgstr "Память: %1"

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+<title>Memory</title>
+<path fill="#fff" fill-rule="evenodd" d="M1.75 4h12.5a.75.75 0 0 1 .75.75V11H1V4.75A.75.75 0 0 1 1.75 4zM2.5 5.5v3H5v-3zM6.75 5.5v3h2.5v-3zM11 5.5v3h2.5v-3zM2 11h1.6v2H2zM4.6 11h1.6v2H4.6zM7.2 11h1.6v2H7.2zM9.8 11h1.6v2H9.8zM12.4 11H14v2h-1.6z"/>
+</svg>

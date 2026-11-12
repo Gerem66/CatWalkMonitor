@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+    <kcfgfile name=""/>
+    <group name="General">
+        <!-- The readings selected: shown next to the cat, or in its tooltip only when the cat is alone. -->
+        <entry name="showCpu" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="showGpu" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="showRam" type="Bool">
+            <default>false</default>
+        </entry>
+        <!-- The temperatures to show next to the usages above. -->
+        <entry name="showCpuTemp" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="showGpuTemp" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="showRamTemp" type="Bool">
+            <default>false</default>
+        </entry>
+        <!-- A color for each reading; the color of the text unless a custom one is asked for. -->
+        <entry name="cpuColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="cpuColor" type="Color">
+            <default>#3daee9</default>
+        </entry>
+        <entry name="gpuColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="gpuColor" type="Color">
+            <default>#27ae60</default>
+        </entry>
+        <entry name="ramColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="ramColor" type="Color">
+            <default>#f67400</default>
+        </entry>
+        <!-- Each reading takes another color above a usage of its own, as the cat does. -->
+        <entry name="cpuHighUsageColorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="cpuHighUsageThreshold" type="Int">
+            <default>80</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <entry name="cpuHighUsageColor" type="Color">
+            <default>#da4453</default>
+        </entry>
+        <entry name="gpuHighUsageColorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="gpuHighUsageThreshold" type="Int">
+            <default>80</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <entry name="gpuHighUsageColor" type="Color">
+            <default>#da4453</default>
+        </entry>
+        <entry name="ramHighUsageColorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="ramHighUsageThreshold" type="Int">
+            <default>80</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <entry name="ramHighUsageColor" type="Color">
+            <default>#da4453</default>
+        </entry>
+        <!-- An icon before each reading, to tell them apart. -->
+        <entry name="showIcons" type="Bool">
+            <default>false</default>
+        </entry>
+        <!-- Digits after the decimal point of the usages. -->
+        <entry name="decimals" type="Int">
+            <default>1</default>
+            <min>0</min>
+            <max>2</max>
+        </entry>
+        <!-- How the readings are arranged. 0: along the panel, 1: in a row, 2: in a column. -->
+        <entry name="valuesOrientation" type="Int">
+            <default>0</default>
+        </entry>
+        <!-- Space between the elements, in pixels; -1 lets the widget choose. -->
+        <entry name="spacing" type="Int">
+            <default>-1</default>
+        </entry>
+        <!-- Space between a usage and its temperature, likewise. -->
+        <entry name="temperatureSpacing" type="Int">
+            <default>-1</default>
+        </entry>
+        <!-- 0: the cat and the readings, 1: the cat only, 2: the readings only. -->
+        <entry name="type" type="Int">
+            <default>0</default>
+        </entry>
+        <!-- What the cat reacts to. 0: CPU, 1: GPU, 2: memory, 3: the highest of the selected readings, 4: their average. -->
+        <entry name="catSource" type="Int">
+            <default>0</default>
+        </entry>
+        <!-- Where the cat is. 0: before the readings, 1: after, 2: above, 3: below. -->
+        <entry name="catPosition" type="Int">
+            <default>0</default>
+        </entry>
+        <!-- Sizes in pixels; 0 lets the widget choose from the room it has. -->
+        <entry name="catSize" type="Int">
+            <default>0</default>
+        </entry>
+        <entry name="textSize" type="Int">
+            <default>0</default>
+        </entry>
+        <!-- Colors; the theme's text color unless a custom one is asked for. -->
+        <entry name="catColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="catColor" type="Color">
+            <default>#3daee9</default>
+        </entry>
+        <entry name="textColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="textColor" type="Color">
+            <default>#3daee9</default>
+        </entry>
+        <!-- The cat takes another color above a given load. -->
+        <entry name="highUsageColorEnabled" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="highUsageThreshold" type="Int">
+            <default>80</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <entry name="highUsageColor" type="Color">
+            <default>#da4453</default>
+        </entry>
+        <!-- The cat sleeps under this load, in percent. -->
+        <entry name="idle" type="Int">
+            <default>5</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <!-- The cat walks under this load, in percent, and runs from there on; 0 makes it always run. -->
+        <entry name="walkThreshold" type="Int">
+            <default>30</default>
+            <min>0</min>
+            <max>100</max>
+        </entry>
+        <!-- Minimum time between two readings, in milliseconds. -->
+        <entry name="updateRateLimit" type="Int">
+            <default>1000</default>
+        </entry>
+        <!-- Frames per second of the animation. -->
+        <entry name="frameRate" type="Int">
+            <default>30</default>
+            <min>1</min>
+            <max>60</max>
+        </entry>
+    </group>
+</kcfg>
