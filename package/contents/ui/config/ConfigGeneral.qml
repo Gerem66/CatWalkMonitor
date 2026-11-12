@@ -9,6 +9,9 @@ KCM.SimpleKCM {
     property alias cfg_showCpu: showCpu.checked
     property alias cfg_showGpu: showGpu.checked
     property alias cfg_showRam: showRam.checked
+    property alias cfg_showCpuTemp: showCpuTemp.checked
+    property alias cfg_showGpuTemp: showGpuTemp.checked
+    property alias cfg_showRamTemp: showRamTemp.checked
     property alias cfg_type: type.currentIndex
     property alias cfg_catSource: catSource.currentIndex
     property alias cfg_catPosition: catPosition.currentIndex
@@ -26,21 +29,43 @@ KCM.SimpleKCM {
             model: [i18n("Cat and values"), i18n("Cat only"), i18n("Values only")]
         }
 
-        ColumnLayout {
+        GridLayout {
             Kirigami.FormData.label: i18n("Values:")
             Kirigami.FormData.buddyFor: showCpu
+            columns: 2
+            columnSpacing: Kirigami.Units.largeSpacing
 
             Controls.CheckBox {
                 id: showCpu
                 text: i18n("CPU usage")
             }
             Controls.CheckBox {
+                id: showCpuTemp
+                text: i18n("and temperature")
+                enabled: showCpu.checked
+            }
+            Controls.CheckBox {
                 id: showGpu
                 text: i18n("GPU usage")
             }
             Controls.CheckBox {
+                id: showGpuTemp
+                text: i18n("and temperature")
+                enabled: showGpu.checked
+            }
+            Controls.CheckBox {
                 id: showRam
                 text: i18n("Memory usage")
+            }
+            RowLayout {
+                Controls.CheckBox {
+                    id: showRamTemp
+                    text: i18n("and temperature")
+                    enabled: showRam.checked
+                }
+                Kirigami.ContextualHelpButton {
+                    toolTipText: i18n("Only memory modules with a temperature sensor report one, which is common with DDR5 and rare before. Nothing is shown otherwise.")
+                }
             }
         }
 

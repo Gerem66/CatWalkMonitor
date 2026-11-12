@@ -144,6 +144,7 @@ Item {
                 id: cpuValue
                 visible: compact.cfg.showCpu
                 usage: compact.metrics.cpuUsage
+                temperature: compact.metrics.cpuTemperature
                 fontSize: compact.fontSize
                 color: Kirigami.Theme.textColor
                 Layout.fillWidth: compact.valuesInColumn
@@ -152,6 +153,7 @@ Item {
                 id: gpuValue
                 visible: compact.cfg.showGpu
                 usage: compact.metrics.gpuUsage
+                temperature: compact.metrics.gpuTemperature
                 fontSize: compact.fontSize
                 color: Kirigami.Theme.textColor
                 Layout.fillWidth: compact.valuesInColumn
@@ -160,6 +162,7 @@ Item {
                 id: ramValue
                 visible: compact.cfg.showRam
                 usage: compact.metrics.ramUsage
+                temperature: compact.metrics.ramTemperature
                 fontSize: compact.fontSize
                 color: Kirigami.Theme.textColor
                 Layout.fillWidth: compact.valuesInColumn
