@@ -175,6 +175,8 @@ Item {
                 temperature: compact.metrics.cpuTemperature
                 fontSize: compact.fontSize
                 color: Kirigami.Theme.textColor
+                icon: Qt.resolvedUrl("../images/cpu.svg")
+                showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn
             }
             MetricItem {
@@ -184,6 +186,8 @@ Item {
                 temperature: compact.metrics.gpuTemperature
                 fontSize: compact.fontSize
                 color: Kirigami.Theme.textColor
+                icon: Qt.resolvedUrl("../images/gpu.svg")
+                showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn
             }
             MetricItem {
@@ -193,6 +197,8 @@ Item {
                 temperature: compact.metrics.ramTemperature
                 fontSize: compact.fontSize
                 color: Kirigami.Theme.textColor
+                icon: Qt.resolvedUrl("../images/memory.svg")
+                showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn
             }
         }

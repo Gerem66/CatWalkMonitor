@@ -12,6 +12,7 @@ KCM.SimpleKCM {
     property alias cfg_showCpuTemp: showCpuTemp.checked
     property alias cfg_showGpuTemp: showGpuTemp.checked
     property alias cfg_showRamTemp: showRamTemp.checked
+    property alias cfg_showIcons: showIcons.checked
     property alias cfg_type: type.currentIndex
     property alias cfg_valuesOrientation: valuesOrientation.currentIndex
     property alias cfg_catSource: catSource.currentIndex
@@ -115,6 +116,18 @@ KCM.SimpleKCM {
             Kirigami.FormData.label: i18n("High usage:")
             dialogTitle: i18nc("@title:window", "Color of the cat at high usage")
             enabled: type.currentIndex !== 2
+        }
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18nc("@title:group", "Values")
+        }
+
+        Controls.CheckBox {
+            id: showIcons
+            Kirigami.FormData.label: i18n("Icons:")
+            text: i18n("Show an icon before each value")
+            enabled: type.currentIndex !== 1
         }
 
         Kirigami.Separator {
