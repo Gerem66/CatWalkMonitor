@@ -25,6 +25,25 @@
         <entry name="showRamTemp" type="Bool">
             <default>false</default>
         </entry>
+        <!-- A color for each reading; the color of the text unless a custom one is asked for. -->
+        <entry name="cpuColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="cpuColor" type="Color">
+            <default>#3daee9</default>
+        </entry>
+        <entry name="gpuColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="gpuColor" type="Color">
+            <default>#27ae60</default>
+        </entry>
+        <entry name="ramColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="ramColor" type="Color">
+            <default>#f67400</default>
+        </entry>
         <!-- An icon before each reading, to tell them apart. -->
         <entry name="showIcons" type="Bool">
             <default>false</default>
@@ -51,6 +70,19 @@
         </entry>
         <entry name="textSize" type="Int">
             <default>0</default>
+        </entry>
+        <!-- Colors; the theme's text color unless a custom one is asked for. -->
+        <entry name="catColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="catColor" type="Color">
+            <default>#3daee9</default>
+        </entry>
+        <entry name="textColorCustom" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="textColor" type="Color">
+            <default>#3daee9</default>
         </entry>
         <!-- The cat takes another color above a given load. -->
         <entry name="highUsageColorEnabled" type="Bool">

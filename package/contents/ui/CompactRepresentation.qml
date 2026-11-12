@@ -128,11 +128,17 @@ Item {
         return Math.max(6, Math.floor(size));
     }
 
+    readonly property color textColor: cfg.textColorCustom ? cfg.textColor : Kirigami.Theme.textColor
     readonly property color catColor: {
         if (cfg.highUsageColorEnabled && catUsage > cfg.highUsageThreshold) {
             return cfg.highUsageColor;
         }
-        return Kirigami.Theme.textColor;
+        return cfg.catColorCustom ? cfg.catColor : Kirigami.Theme.textColor;
+    }
+
+    /** The color of a reading, `name` being the prefix of its settings. */
+    function valueColor(name) {
+        return cfg[name + "ColorCustom"] ? cfg[name + "Color"] : textColor;
     }
 
     // In a panel the widget is exactly as long as its content.
@@ -180,7 +186,7 @@ Item {
                 usage: compact.metrics.cpuUsage
                 temperature: compact.metrics.cpuTemperature
                 fontSize: compact.fontSize
-                color: Kirigami.Theme.textColor
+                color: compact.valueColor("cpu")
                 icon: Qt.resolvedUrl("../images/cpu.svg")
                 showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn
@@ -191,7 +197,7 @@ Item {
                 usage: compact.metrics.gpuUsage
                 temperature: compact.metrics.gpuTemperature
                 fontSize: compact.fontSize
-                color: Kirigami.Theme.textColor
+                color: compact.valueColor("gpu")
                 icon: Qt.resolvedUrl("../images/gpu.svg")
                 showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn
@@ -202,7 +208,7 @@ Item {
                 usage: compact.metrics.ramUsage
                 temperature: compact.metrics.ramTemperature
                 fontSize: compact.fontSize
-                color: Kirigami.Theme.textColor
+                color: compact.valueColor("ram")
                 icon: Qt.resolvedUrl("../images/memory.svg")
                 showIcon: compact.cfg.showIcons
                 Layout.fillWidth: compact.valuesInColumn

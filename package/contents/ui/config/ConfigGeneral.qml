@@ -13,15 +13,25 @@ KCM.SimpleKCM {
     property alias cfg_showGpuTemp: showGpuTemp.checked
     property alias cfg_showRamTemp: showRamTemp.checked
     property alias cfg_showIcons: showIcons.checked
+    property alias cfg_cpuColorCustom: cpuColor.custom
+    property alias cfg_cpuColor: cpuColor.color
+    property alias cfg_gpuColorCustom: gpuColor.custom
+    property alias cfg_gpuColor: gpuColor.color
+    property alias cfg_ramColorCustom: ramColor.custom
+    property alias cfg_ramColor: ramColor.color
     property alias cfg_type: type.currentIndex
     property alias cfg_valuesOrientation: valuesOrientation.currentIndex
     property alias cfg_catSource: catSource.currentIndex
     property alias cfg_catPosition: catPosition.currentIndex
     property alias cfg_catSize: catSize.value
+    property alias cfg_catColorCustom: catColor.custom
+    property alias cfg_catColor: catColor.color
     property alias cfg_highUsageColorEnabled: catHighUsage.active
     property alias cfg_highUsageThreshold: catHighUsage.threshold
     property alias cfg_highUsageColor: catHighUsage.color
     property alias cfg_textSize: textSize.value
+    property alias cfg_textColorCustom: textColor.custom
+    property alias cfg_textColor: textColor.color
     property alias cfg_idle: idle.value
     property alias cfg_walkThreshold: walkThreshold.value
     property alias cfg_updateRateLimit: updateRateLimit.value
@@ -122,6 +132,13 @@ KCM.SimpleKCM {
             enabled: type.currentIndex !== 2
         }
 
+        ColorChoice {
+            id: catColor
+            Kirigami.FormData.label: i18n("Color:")
+            dialogTitle: i18nc("@title:window", "Color of the cat")
+            enabled: type.currentIndex !== 2
+        }
+
         HighUsageChoice {
             id: catHighUsage
             Kirigami.FormData.label: i18n("High usage:")
@@ -143,11 +160,55 @@ KCM.SimpleKCM {
             enabled: type.currentIndex !== 1
         }
 
+        ColorChoice {
+            id: textColor
+            Kirigami.FormData.label: i18n("Color:")
+            dialogTitle: i18nc("@title:window", "Color of the values")
+            enabled: type.currentIndex !== 1
+        }
+
         Controls.CheckBox {
             id: showIcons
             Kirigami.FormData.label: i18n("Icons:")
             text: i18n("Show an icon before each value")
             enabled: type.currentIndex !== 1
+        }
+
+        // What is particular to a value overrides what they share.
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18nc("@title:group", "CPU")
+        }
+
+        ColorChoice {
+            id: cpuColor
+            Kirigami.FormData.label: i18n("Color:")
+            dialogTitle: i18nc("@title:window", "Color of the CPU value")
+            enabled: type.currentIndex !== 1 && showCpu.checked
+        }
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18nc("@title:group", "GPU")
+        }
+
+        ColorChoice {
+            id: gpuColor
+            Kirigami.FormData.label: i18n("Color:")
+            dialogTitle: i18nc("@title:window", "Color of the GPU value")
+            enabled: type.currentIndex !== 1 && showGpu.checked
+        }
+
+        Kirigami.Separator {
+            Kirigami.FormData.isSection: true
+            Kirigami.FormData.label: i18nc("@title:group", "Memory")
+        }
+
+        ColorChoice {
+            id: ramColor
+            Kirigami.FormData.label: i18n("Color:")
+            dialogTitle: i18nc("@title:window", "Color of the memory value")
+            enabled: type.currentIndex !== 1 && showRam.checked
         }
 
         Kirigami.Separator {
