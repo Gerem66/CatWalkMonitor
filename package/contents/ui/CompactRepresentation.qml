@@ -34,11 +34,12 @@ Item {
     readonly property bool showBoth: showCat && showValues
 
     // Everything follows the panel: side by side along a horizontal one,
-    // one above the other down a vertical one. The readings can also be
-    // asked to be in a row or in a column wherever the widget is.
-    readonly property bool stacked: showBoth && vertical
+    // one above the other down a vertical one. The cat can also be asked
+    // to sit above or below the readings, and the readings to be in a row
+    // or in a column, wherever the widget is.
+    readonly property bool stacked: showBoth && (vertical || cfg.catPosition >= 2)
     readonly property bool valuesInColumn: cfg.valuesOrientation === 0 ? vertical : cfg.valuesOrientation === 2
-    readonly property bool catFirst: cfg.catPosition === 0
+    readonly property bool catFirst: cfg.catPosition % 2 === 0
     // The space between the elements is a share of the font size. Lines of
     // text already carry space above and below: none is added between them.
     readonly property real gapEm: 0.5
@@ -70,7 +71,10 @@ Item {
     }
 
     // Sizes are chosen from the room there is.
-    readonly property real catSize: thickness
+    readonly property real catSize: {
+        // Above or below the readings, the cat leaves them half the thickness.
+        return stacked && !vertical ? Math.round(thickness / 2) : thickness;
+    }
     readonly property real fontSize: {
         const values = [];
         if (cfg.showCpu) {
@@ -105,9 +109,15 @@ Item {
             pixels = values.reduce((sum, value) => sum + value.pixels, 0) + gaps * spacingPixels;
             size = Math.min(size, (thickness - pixels) / em);
         } else {
-            // ...or in the height of the panel.
+            // ...or in the height of the panel, less what the cat takes above or below.
             const lines = valuesInColumn ? values.length : 1;
-            size = Math.min(size, thickness / (lines * cpuValue.lineEm));
+            em = lines * cpuValue.lineEm;
+            pixels = 0;
+            if (stacked) {
+                em += spacingEm;
+                pixels += catSize + spacingPixels;
+            }
+            size = Math.min(size, (thickness - pixels) / em);
         }
         return Math.max(6, Math.floor(size));
     }

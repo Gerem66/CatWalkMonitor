@@ -37,7 +37,7 @@
         <entry name="catSource" type="Int">
             <default>0</default>
         </entry>
-        <!-- Where the cat is. 0: before the readings, 1: after. -->
+        <!-- Where the cat is. 0: before the readings, 1: after, 2: above, 3: below. -->
         <entry name="catPosition" type="Int">
             <default>0</default>
         </entry>

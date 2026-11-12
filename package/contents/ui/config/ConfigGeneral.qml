@@ -105,7 +105,8 @@ KCM.SimpleKCM {
         Controls.ComboBox {
             id: catPosition
             Kirigami.FormData.label: i18n("Position:")
-            model: [i18n("Before the values"), i18n("After the values")]
+            model: [i18n("Before the values"), i18n("After the values"),
+                    i18n("Above the values"), i18n("Below the values")]
             enabled: type.currentIndex === 0
         }
 
