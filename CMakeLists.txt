@@ -11,5 +11,5 @@ include(KDEInstallDirs)
 find_package(Plasma REQUIRED)
 find_package(KF6I18n NO_MODULE)
 
-plasma_install_package(org.kde.plasma.catwalk-neo org.kde.plasma.catwalk-neo)
+plasma_install_package(package com.github.gerem66.catwalkmonitor)
 ki18n_install(translations)

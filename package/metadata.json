@@ -3,15 +3,18 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "dr@i-glu4it.ru",
-                "Name": "Yuri Saurov"
+                "Name": "Gerem66"
             },
             {
                 "Email": "plu-github@protonmail.com",
                 "Name": "Pavel Urusov"
+            },
+            {
+                "Email": "dr@i-glu4it.ru",
+                "Name": "Yuri Saurov"
             }
         ],
-        "BugReportUrl": "https://github.com/SpinningVinyl/CatWalkNeo/issues",
+        "BugReportUrl": "https://github.com/Gerem66/CatWalkMonitor/issues",
         "Category": "System",
         "Description": "Total CPU usage",
         "Description[ru]": "Общая загрузка ЦП",
@@ -23,10 +26,10 @@
             "desktop"
         ],
         "Icon": "animal-symbolic",
-        "Id": "org.kde.plasma.catwalk-neo",
+        "Id": "com.github.gerem66.catwalkmonitor",
         "License": "GPL-2.0+",
-        "Name": "CatWalk Neo",
-        "Website": "https://github.com/SpinningVinyl/CatWalkNeo",
+        "Name": "CatWalk Monitor",
+        "Website": "https://github.com/Gerem66/CatWalkMonitor",
         "Version": "3.0.1"
     },
     "X-Plasma-API-Minimum-Version": "6.0",
