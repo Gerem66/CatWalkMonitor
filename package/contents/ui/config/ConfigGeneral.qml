@@ -13,6 +13,7 @@ KCM.SimpleKCM {
     property alias cfg_highCpuThreshold: highCpuThresholdSpinBox.value
     property alias cfg_highCpuColor: highCpuColorButton.color
     property alias cfg_updateRateLimit: updateRateLimitSpinBox.value
+    property alias cfg_frameRate: frameRateSpinBox.value
     Kirigami.FormLayout {
         id: root
 
@@ -106,6 +107,13 @@ KCM.SimpleKCM {
                     return v * 1000
                 }
             }
+        }
+        Controls.SpinBox {
+            id: frameRateSpinBox
+            Kirigami.FormData.label: i18n("Animation frame rate")
+            from: 1
+            to: 60
+            editable: true
         }
     }
 }

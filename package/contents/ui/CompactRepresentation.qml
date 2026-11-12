@@ -17,6 +17,11 @@ Item {
         VerticalDesktop,
         IconOnly
     }
+    // The sensor has no value before its first reading, and nothing says it
+    // stays under 100. Left as is, the first case gives the timer a NaN
+    // interval and the second a null or negative one.
+    readonly property real usage: typeof totalSensor.value === "number" && isFinite(totalSensor.value)
+                                  ? Math.max(0, Math.min(totalSensor.value, 100)) : 0
     property int layoutForm
     Binding on layoutForm {
         delayed: true
@@ -78,14 +83,12 @@ Item {
                 return GridLayout.LeftToRight
             }
         }
-        Kirigami.Icon {
-            property int sourceIndex: 0
+        Cat {
             id: svgItem
-            opacity: 1
-            animated: false
-            roundToIconSize: false
-            isMask: true
-            color: plasmoid.configuration.highCpuColorEnabled && totalSensor.value > plasmoid.configuration.highCpuThreshold
+            usage: compactRepresentation.usage
+            idleThreshold: plasmoid.configuration.idle
+            frameRate: plasmoid.configuration.frameRate
+            color: plasmoid.configuration.highCpuColorEnabled && compactRepresentation.usage > plasmoid.configuration.highCpuThreshold
                 ? plasmoid.configuration.highCpuColor : Kirigami.Theme.textColor
             Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
             Layout.preferredWidth: Math.min(compactRepresentation.parent.width,
@@ -94,9 +97,7 @@ Item {
             Layout.maximumHeight: 128
             Layout.maximumWidth: 128
             visible: plasmoid.configuration.type !== 2
-            source: Qt.resolvedUrl("../images/my-idle-symbolic.svg")
         }
-            Layout.maximumHeight: 40
             PlasmaComponents3.Label {
                 property double fontHeightRatio: textMetrics.font.pixelSize / textMetrics.height
                 id: label
@@ -139,21 +140,6 @@ Item {
                 id: totalSensor
                 sensorId: "cpu/all/usage"
                 updateRateLimit: plasmoid.configuration.updateRateLimit
-            }
-            Timer {
-                id: switchTimer
-                repeat: true
-                running: true
-                interval: Math.ceil(
-                              5000 / Math.sqrt(
-                                  totalSensor.value + 35) - 400) // Used from original widget
-                onTriggered: {
-                    if (svgItem.sourceIndex == 5) {
-                        svgItem.sourceIndex = 0
-                    }
-                    svgItem.source = (totalSensor.value < plasmoid.configuration.idle) ? Qt.resolvedUrl("../images/my-idle-symbolic.svg") : Qt.resolvedUrl("../images/my-active-" + svgItem.sourceIndex + "-symbolic.svg")
-                    svgItem.sourceIndex += 1
-                }
             }
     }
 }
